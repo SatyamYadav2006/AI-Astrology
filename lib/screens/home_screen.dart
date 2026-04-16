@@ -51,7 +51,11 @@ class _HomeScreenState extends State<HomeScreen> {
               IconButton(icon: const Icon(Icons.brightness_6), onPressed: () => Provider.of<ThemeProvider>(context, listen: false).toggleTheme()),
               PopupMenuButton<String>(
                 icon: const Icon(Icons.more_vert),
-                color: Theme.of(context).colorScheme.surface,
+                color: const Color(0xFF161B2A), // Secure solid dark blue/grey background
+                elevation: 12,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                offset: const Offset(0, 50),
+                padding: const EdgeInsets.all(8),
                 onSelected: (value) {
                   if (value == 'about') {
                     Navigator.push(context, MaterialPageRoute(builder: (_) => const AboutScreen()));
