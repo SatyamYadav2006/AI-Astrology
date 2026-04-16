@@ -163,9 +163,12 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Icon(Icons.auto_awesome, size: 70, color: Theme.of(context).colorScheme.tertiary)
-                  .animate(onPlay: (c) => c.repeat(reverse: true))
-                  .scaleXY(begin: 0.9, end: 1.1, duration: 4.seconds)
+                Center(
+                  child: ClipOval(
+                    child: Image.asset('assets/app-icon.png', height: 90, width: 90, fit: BoxFit.cover),
+                  ),
+                ).animate(onPlay: (c) => c.repeat(reverse: true))
+                  .scaleXY(begin: 0.95, end: 1.05, duration: 4.seconds)
                   .then().shimmer(duration: 2.seconds),
                 const SizedBox(height: 32),
                 const Text(

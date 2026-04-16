@@ -119,6 +119,14 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Center(
+                  child: ClipOval(
+                    child: Image.asset('assets/app-icon.png', height: 75, width: 75, fit: BoxFit.cover),
+                  ),
+                ).animate(onPlay: (c) => c.repeat(reverse: true))
+                  .scaleXY(begin: 0.95, end: 1.05, duration: 4.seconds)
+                  .then().shimmer(duration: 2.seconds),
+                const SizedBox(height: 16),
                 const Text(
                   "REGISTER",
                   style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 8.0, fontSize: 24, color: Colors.white),
