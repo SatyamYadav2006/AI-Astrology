@@ -48,6 +48,50 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264963123926:android:856e130defe9602c203777",
+        "android_client_info": {
+          "package_name": "com.satyam.lumina_ai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264963123926-7krv39hs0v3s0cttug7dsv1esfa2729l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satyam.lumina_ai",
+            "certificate_hash": "32d09abc1d622261334be8f10a1a30ed8f68bef9"
+          }
+        },
+        {
+          "client_id": "264963123926-e8tagghrmsr7dssqgk2sldrnejfsjvuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKlPaTmBZTYImXHxbbCHJs7h-eeV54iTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264963123926-e8tagghrmsr7dssqgk2sldrnejfsjvuk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "264963123926-63r1kfefm52cc413uvoamjbr8emkq7i1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aiAstrology"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

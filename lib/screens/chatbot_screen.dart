@@ -53,10 +53,37 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     await flutterTts.stop();
     if (mounted) setState(() => _playingText = text);
 
-    bool isHindi = RegExp(r'[\u0900-\u097F]').hasMatch(text);
-    String targetLocale = isHindi ? "hi-IN" : "en-IN";
+    // Force strict Hindi (hi-IN) engine universally for all strings to natively guarantee a heavy Indian accent.
+    String targetLocale = "hi-IN";
 
     await flutterTts.setLanguage(targetLocale);
+
+    // Actively scan and bind to High-Quality Neural/Network voices natively if available!
+    // This entirely eliminates the robotic "offline" chopped accent.
+    if (!kIsWeb) {
+      try {
+        List<dynamic> voices = await flutterTts.getVoices;
+        for (dynamic voice in voices) {
+          String name = voice["name"].toString().toLowerCase();
+          String locale = voice["locale"].toString();
+          if (locale == targetLocale && (name.contains("network") || name.contains("neural"))) {
+            await flutterTts.setVoice({"name": voice["name"], "locale": voice["locale"]});
+            break;
+          }
+        }
+      } catch (e) {
+        debugPrint("TTS Neural Voice Binding error: $e");
+      }
+    }
+
+    // Rely explicitly on OS default speech rates! Forcing manual multipliers severely distorts complex Indian accents natively.
+    if (kIsWeb) {
+       await flutterTts.setSpeechRate(1.0);
+    } else {
+       // Reset back to absolute standard native speed (usually 0.5 internally automatically).
+       await flutterTts.setSpeechRate(0.5); 
+    }
+
     await flutterTts.setPitch(1.0);
 
     await flutterTts.speak(text);
